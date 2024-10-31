@@ -5,34 +5,28 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: nsouza-o <nsouza-o@student.42porto.com     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/10/31 14:39:12 by nsouza-o          #+#    #+#             */
-/*   Updated: 2024/10/31 19:31:07 by nsouza-o         ###   ########.fr       */
+/*   Created: 2024/10/31 20:37:36 by nsouza-o          #+#    #+#             */
+/*   Updated: 2024/10/31 20:47:10 by nsouza-o         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ScalarConverter.hpp"
-#include "InputValidator.hpp"
+#include "Serializer.hpp"
 
-int main(int argc, char **argv)
+int main()
 {
-	if (argc != 2 || !argv[1][0])
-	{
-		std::cout << "The program only accepts a single literal as an argument." << std::endl;
-	}	
+	Data data = {"Nicole", 29};
 	
-	InputValidator check(argv[1]);
-
-	try
-	{
-		check.isValidInput();
-	}
-	catch(const std::exception& e)
-	{
-		std::cerr << e.what() << std::endl;
-		return (1);
-	}
-
-	ScalarConverter::convert(argv[1]);
+	std::cout << "Data infos before serialize:\nName: " << data.name << ".\nAge: " << data.age << "." << std::endl;
 	
+	uintptr_t raw = Serializer::serialize(&data);
+	Data *ptr = Serializer::deserialize(raw);
+
+	if (ptr == &data) 
+	{
+        std::cout << "Serializer works!" << std::endl;
+		std::cout << "Data infos after deserialize:\nName: " << ptr->name << ".\nAge: " << ptr->age << "." << std::endl;
+	}
+	else 
+		std::cout << "Serializer failed." << std::endl;
 	return (0);
 }

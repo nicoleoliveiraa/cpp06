@@ -6,7 +6,7 @@
 /*   By: nsouza-o <nsouza-o@student.42porto.com     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/31 14:24:11 by nsouza-o          #+#    #+#             */
-/*   Updated: 2024/10/31 18:49:54 by nsouza-o         ###   ########.fr       */
+/*   Updated: 2024/10/31 20:37:10 by nsouza-o         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,10 +39,10 @@ enum    e_type
 class ScalarConverter {
 private:
 	ScalarConverter();
-
-public:
 	ScalarConverter(const ScalarConverter& src);
 	ScalarConverter& operator=(const ScalarConverter& src);
+
+public:
 	~ScalarConverter();
 
 	static void convert(std::string lit);
