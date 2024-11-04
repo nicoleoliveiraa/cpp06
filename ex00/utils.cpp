@@ -6,7 +6,7 @@
 /*   By: nsouza-o <nsouza-o@student.42porto.com     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/31 17:01:05 by nsouza-o          #+#    #+#             */
-/*   Updated: 2024/10/31 19:15:32 by nsouza-o         ###   ########.fr       */
+/*   Updated: 2024/11/04 18:25:06 by nsouza-o         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ e_type findType(std::string lit)
 {
 	if (lit == "nan" || lit == "nanf" || lit == "+inf" || lit == "+inff" || lit == "-inf" || lit == "-inff")
 		return SPECIAL;
-	if (lit.length() == 1 && isascii(lit[0]))
+	if (lit.length() == 1 && isascii(lit[0]) && (lit[0] < 48 || lit[0] > 57))
 		return CHAR;
 	if (lit[lit.length() - 1] == 'f')
 		return FLOAT;
@@ -110,7 +110,7 @@ void convertFloat(std::string lit)
 	else
 		std::cout << "int: " << static_cast<int>(num) << std::endl;
 
-	if (num < MIN_FLOAT || num > MAX_FLOAT)
+	if (num < -MAX_FLOAT || num > MAX_FLOAT)
 		std::cout << "float: " << "impossible" << std::endl;
 	else
 		std::cout << "float: " << num << (tolerance ? ".0f" : "f") << std::endl;
@@ -122,7 +122,6 @@ void convertDouble(std::string lit)
 {
 	double num = atof(lit.c_str());
 	bool tolerance = std::fabs(num - static_cast<int>(num)) < 0.0000000000001;
-	
 	
 	if (num >= 0 && num <= 127)
 	{
@@ -139,13 +138,13 @@ void convertDouble(std::string lit)
 	else
 		std::cout << "int: " << static_cast<int>(num) << std::endl;
 
-	if (num < MIN_FLOAT || num > MAX_FLOAT)
+	if (num < -MAX_FLOAT || num > MAX_FLOAT)
 		std::cout << "float: " << "impossible" << std::endl;
 	else
 		std::cout << "float: " << num << (tolerance ? ".0f" : "f") << std::endl;
 
-	if (num < MIN_DOUBLE || num > MAX_DOUBLE)
+	if (num < -MAX_DOUBLE || num > MAX_DOUBLE)
 		std::cout << "double: " << "impossible" << std::endl;
 	else
-		std::cout << "double: " << num << std::endl;
+		std::cout << "double: " << num << (tolerance ? ".0" : "") << std::endl;
 }

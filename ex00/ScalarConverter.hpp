@@ -6,7 +6,7 @@
 /*   By: nsouza-o <nsouza-o@student.42porto.com     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/31 14:24:11 by nsouza-o          #+#    #+#             */
-/*   Updated: 2024/10/31 20:37:10 by nsouza-o         ###   ########.fr       */
+/*   Updated: 2024/11/04 18:22:05 by nsouza-o         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,11 +15,13 @@
 
 #include <iostream>
 #include <limits>
-# include <cmath>
-# include <iomanip>
-# include <exception>
-# include <cstdlib>
+#include <cmath>
+#include <iomanip>
+#include <exception>
+#include <cstdlib>
 
+#define MIN_CHAR std::numeric_limits<char>::min()
+#define MAX_CHAR std::numeric_limits<char>::max()
 #define MIN_INT std::numeric_limits<int>::min()
 #define MAX_INT std::numeric_limits<int>::max()
 #define MIN_FLOAT std::numeric_limits<float>::min()

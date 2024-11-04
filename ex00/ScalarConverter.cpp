@@ -6,7 +6,7 @@
 /*   By: nsouza-o <nsouza-o@student.42porto.com     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/31 14:31:01 by nsouza-o          #+#    #+#             */
-/*   Updated: 2024/10/31 19:13:49 by nsouza-o         ###   ########.fr       */
+/*   Updated: 2024/11/04 18:35:15 by nsouza-o         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,11 @@ ScalarConverter& ScalarConverter::operator=(const ScalarConverter& src)
 void ScalarConverter::convert(std::string lit)
 {
 	e_type litType = findType(lit);
-	
+
+	//std::cout << MIN_CHAR << std::endl;
+	//std::cout << MAX_CHAR << std::endl;
+	//std::cout << litType << std::endl;
+
 	switch (litType)
 	{
 		case SPECIAL:

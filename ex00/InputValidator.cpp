@@ -6,7 +6,7 @@
 /*   By: nsouza-o <nsouza-o@student.42porto.com     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/31 14:58:18 by nsouza-o          #+#    #+#             */
-/*   Updated: 2024/10/31 18:48:42 by nsouza-o         ###   ########.fr       */
+/*   Updated: 2024/11/04 18:28:47 by nsouza-o         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,9 +55,10 @@ bool InputValidator::_isNum() const
 	{
 		if (!isdigit(_input[i]))
 		{
-			if ((i == _input.length() - 1 && _input[i] == 'f'))
+			if (i == _input.length() - 1 && _input[i] == 'f' && isdigit(_input[i - 1]))
 				continue ;
-			else if (_input[i] == '.' && quote == false && i != _input.length() - 1)
+			else if (_input[i] == '.' && quote == false && i != _input.length() - 1\
+				 && _input[i + 1] != 'f')
 			{
 				quote = true;
 				continue ;
