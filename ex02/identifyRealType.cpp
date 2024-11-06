@@ -6,7 +6,7 @@
 /*   By: nsouza-o <nsouza-o@student.42porto.com     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/02 19:10:49 by nsouza-o          #+#    #+#             */
-/*   Updated: 2024/11/02 19:55:18 by nsouza-o         ###   ########.fr       */
+/*   Updated: 2024/11/06 13:56:39 by nsouza-o         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,21 +56,21 @@ void identify(Base& p)
 {
 	try 
 	{
-        dynamic_cast<A&>(p);
-        std::cout << "Detected object type with reference:" << BOLD_YELLOW << "[A]" << RESET << std::endl;
+        (void)dynamic_cast<A&>(p);
+        std::cout << "Detected object type with reference:" << BOLD_YELLOW << "[A]." << RESET << std::endl;
     } 
     catch (const std::exception &e) {
         try {
-            dynamic_cast<B&>(p);
-            std::cout << "Detected object type with reference:" << BOLD_YELLOW << "[B]" << RESET << std::endl;
+            (void)dynamic_cast<B&>(p);
+            std::cout << "Detected object type with reference:" << BOLD_YELLOW << "[B]." << RESET << std::endl;
         } 
         catch (const std::exception &e) {
             try {
-                dynamic_cast<C&>(p);
-                std::cout << "Detected object type with reference:" << BOLD_YELLOW << "[C]" << RESET << std::endl;
+                (void)dynamic_cast<C&>(p);
+                std::cout << "Detected object type with reference:" << BOLD_YELLOW << "[C]." << RESET << std::endl;
             } 
             catch (const std::exception &e) {
-                std::cout << "Detected object type with reference:" << BOLD_RED << "[Unknow]" << RESET << std::endl;
+                std::cout << "Detected object type with reference:" << BOLD_RED << "[Unknow]." << RESET << std::endl;
             }
         }
     }	
